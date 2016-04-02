@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="library.carpool.MainActivity"
+    tools:showIn="@layout/activity_main"
+    android:background="#fbd8d8"
+    android:clickable="false">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome "
+        android:id="@+id/textView"
+        android:layout_alignTop="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textAlignment="center" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/register_btn"
+        android:id="@+id/register_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="150dp"
+        android:textColor="#090909"
+        android:textSize="20dp"
+        android:layout_toStartOf="@+id/textView"
+        android:background="@drawable/buttonshape"
+        android:backgroundTint="#5cf934"
+        android:width="200dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_btn"
+        android:id="@+id/login_btn"
+        android:layout_alignTop="@+id/register_btn"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView"
+        android:background="@drawable/buttonshape"
+        android:textSize="20dp"
+        android:textColor="#090909"
+        android:backgroundTint="#66a8f9"
+        android:width="200dp" />
+</RelativeLayout>

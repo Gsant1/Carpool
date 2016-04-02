@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Carpool</string>
+    <string name="action_settings">Settings</string>
+    <string name="register_btn">Register</string>
+    <string name="login_btn">LOGIN</string>
+    <string name="loginBtn">LOGIN</string>
+    <string name="goback_btn">BACK</string>
+
+    <string name="first_name">First name:</string>
+
+    <string name="genber_title">Gender:</string>
+    <string name="genber_female">Female</string>
+    <string name="genber_male">Male</string>
+    <string name="button_submit">Submit</string>
+
+    <string name="layout2_label">Second Layout</string>
+    <string name="gender_title2">Your Gender:</string>
+    <string name="fname">First Name</string>
+    <string name="lname">Last Name</string>
+    <string name="b_date">Birth Date</string>
+    <string name="id_address">Address</string>
+    <string name="id_email">Email</string>
+    <string name="city_id">City</string>
+    <string name="state_id">State</string>
+    <string name="phone_id">Phone Number</string>
+
+
+</resources>
