@@ -1,0 +1,86 @@
+--script to create exercise database
+
+-- SQLite set up commands
+.echo ON
+
+.mode list
+.separator "  |  "
+
+.output Group6_output.txt
+
+PRAGMA foreign_keys = ON;
+
+-- SQL to remove the tables if they exist so they can be newly created
+
+DROP TABLE IF EXISTS customer;
+DROP TABLE IF EXISTS Trip;
+DROP TABLE IF EXISTS Vehicle;
+DROP TABLE IF EXISTS Rating;
+DROP TABLE IF EXISTS participant;
+
+-- SQL to create all the tables
+
+CREATE TABLE customer
+(cust_id INTEGER, 
+c_last VARCHAR(30),
+c_first VARCHAR(30),
+c_address VARCHAR(30),
+c_city VARCHAR(30),
+c_state CHAR(2),
+c_phonenum VARCHAR(10),
+c_password VARCHAR(15),
+c_email VARCHAR(30),
+c_gender CHAR(2),
+c_age INTEGER,
+c_AverageRating REAL,
+Have_MotionSickness BOOLEAN NOT NULL,
+Is_outgoing BOOLEAN NOT NULL,
+Is_shy BOOLEAN NOT NULL,
+Does_smoke BOOLEAN NOT NULL,
+CONSTRAINT customer_c_id_pk PRIMARY KEY (cust_id));
+
+CREATE TABLE Trip
+(
+Trip_id INTEGER, 
+T_frequency VARCHAR(30),
+T_No_of_Seat INTEGER(10),
+T_origin VARCHAR(30),
+T_destination VARCHAR(30),
+T_start_time INTEGER, 
+T_return_time INTEGER,
+T_Nature VARCHAR(30),
+T_date DATE,
+car_number VARCHAR(6),
+CONSTRAINT Trip_id_pk PRIMARY KEY (Trip_id),
+CONSTRAINT car_number_fk FOREIGN KEY (car_number) REFERENCES vehicle(car_number),
+CONSTRAINT customer_c_id_fk FOREIGN KEY (cust_id) REFERENCES customer(cust_id));
+
+CREATE TABLE Participant
+(
+Participant_id INTEGER,
+cust_id INTEGER, 
+Trip_id INTEGER,
+Cust_type_desc VARCHAR(30),
+CONSTRAINT Participant_id_pk PRIMARY KEY (Participant_id),
+CONSTRAINT customer_c_id_fk FOREIGN KEY (cust_id) REFERENCES customer(cust_id)
+CONSTRAINT Trip_id_fk FOREIGN KEY (Trip_id) REFERENCES Trip(Trip_id));
+
+CREATE TABLE Vehicle 
+(
+car_number VARCHAR(6),
+car_model VARCHAR(10) NOT NULL,
+cust_id INTEGER, 
+CONSTRAINT car_number_pk PRIMARY KEY (car_number),
+CONSTRAINT customer_c_id_fk FOREIGN KEY (cust_id) REFERENCES customer(cust_id));
+
+CREATE TABLE RATING
+(
+rate_id INTEGER,
+cust_id INTEGER,
+cust_tracid INTEGER,
+rating_details REAL,
+CONSTRAINT rate_id_pk PRIMARY KEY (rate_id),
+CONSTRAINT customer_c_id_fk FOREIGN KEY (cust_id) REFERENCES customer(cust_id));
+
+.schema 
+.tables
